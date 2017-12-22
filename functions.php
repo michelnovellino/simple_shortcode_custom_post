@@ -12,7 +12,9 @@ if ( !function_exists( 'chld_thm_cfg_parent_css' ) ):
 endif;
 add_action( 'wp_enqueue_scripts', 'chld_thm_cfg_parent_css', 10 );
 
-function display_categoria1( $atts ) {
+// la primera funcion solo la utilizo para obtener el nombre del custom post e informacion general.
+
+function display_info( $atts ) {
 	 get_post_type(11560);
   echo get_post_meta( 11560, 'ranking-top', true);
    
@@ -25,10 +27,11 @@ foreach($custom as $key => $value) {
 }
 
 }
-add_shortcode( 'esto', 'display_categoria1' );
+add_shortcode( 'esto', 'display_info' );
 
 
-
+// ya teniendo la informacion puedo tratar los datos y convertirlo en un listado 
+//(cual si fuese listado de entradas de blog o el propio listado de productos de woocommerce).
 
 
 function display_categoria($args) {
