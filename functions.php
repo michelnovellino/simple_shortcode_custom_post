@@ -1,21 +1,9 @@
 <?php
-// Exit if accessed directly
-if ( !defined( 'ABSPATH' ) ) exit;
-
-// BEGIN ENQUEUE PARENT ACTION
-// AUTO GENERATED - Do not modify or remove comment markers above or below:
-
-if ( !function_exists( 'chld_thm_cfg_parent_css' ) ):
-    function chld_thm_cfg_parent_css() {
-        wp_enqueue_style( 'chld_thm_cfg_parent', trailingslashit( get_template_directory_uri() ) . 'style.css', array(  ) );
-    }
-endif;
-add_action( 'wp_enqueue_scripts', 'chld_thm_cfg_parent_css', 10 );
 
 // la primera funcion solo la utilizo para obtener el nombre del custom post e informacion general.
 
 function display_info( $atts ) {
-	 get_post_type(11560);
+	 
   echo get_post_meta( 11560, 'ranking-top', true);
    
   $key_name = get_post_custom_values($key = '_precio_1hra');
@@ -27,7 +15,7 @@ foreach($custom as $key => $value) {
 }
 
 }
-add_shortcode( 'esto', 'display_info' );
+add_shortcode( 'desplegar_info', 'display_info' );
 
 
 // ya teniendo la informacion puedo tratar los datos y convertirlo en un listado 
@@ -47,7 +35,7 @@ $query = new WP_Query(array(
   
 	 echo "<div  style='width:220px; height:300px;'  class='carta_contenedor col-3'>";								   
 								   
-		$id=get_the_id();
+		//$id=get_the_id();
   
 
   
@@ -90,7 +78,7 @@ $query = new WP_Query(array(
 wp_reset_query();
 }
 
-add_shortcode( 'este', 'display_categoria' );
+add_shortcode( 'desplegar_categoria', 'display_categoria' );
 
 
 
